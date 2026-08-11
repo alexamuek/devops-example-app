@@ -68,5 +68,3 @@ ssh:
 	ssh root@`yq e '.all.children.webservers.hosts.web1.ansible_host' ansible/inventory.yml`
 
 
-# Для запуска x86-образа на ARM (например, Mac M1/M2):
-# docker run --platform linux/amd64 -p 3000:3000 -e SERVER_MESSAGE="Hexlet Awesome Server" hexletcomponents/devops-example-app
