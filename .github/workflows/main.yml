@@ -6,7 +6,7 @@ on:
       - 'main'
 
 env:
-  TEST_TAG: alexamuek/devops-example-app:test  # Изменено на ваше имя
+  TEST_TAG: alexamuek/devops-example-app:test
 
 jobs:
   docker:
@@ -17,7 +17,8 @@ jobs:
       - uses: docker/setup-qemu-action@v4
       - uses: docker/setup-buildx-action@v4
 
-      - uses: docker/login-action@v4
+      - name: Login to Docker Hub
+        uses: docker/login-action@v4
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
@@ -37,7 +38,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: alexamuek/devops-example-app:latest  # Изменено на ваше имя
+          tags: alexamuek/devops-example-app:latest
 
       - name: Build and push caddy
         uses: docker/build-push-action@v7
@@ -45,4 +46,4 @@ jobs:
           context: .
           file: services/caddy/Dockerfile
           push: true
-          tags: alexamuek/devops-example-caddy:latest  # Изменено на ваше имя
+          tags: alexamuek/devops-example-caddy:latest
