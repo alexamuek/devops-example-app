@@ -1,5 +1,6 @@
-localhost, devops-example.test {
-	tls internal
+http://89.169.156.37 {
+# localhost, devops-example.test {
+	# tls internal
 
 	handle /images/* {
 		file_server
@@ -9,6 +10,7 @@ localhost, devops-example.test {
 	handle {
 		# Caddy uses host networking in the local Compose override.
 		reverse_proxy app:3000
+		# reverse_proxy localhost:3000
 	}
 
 	log {
