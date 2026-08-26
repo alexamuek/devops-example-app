@@ -16,6 +16,8 @@
         # Если контейнер остановится, например, из-за ошибок
         # супервизор докера его перезапустить
         restart_policy: always
+        # всегда скачиваем образ
+        pull: always
         # Запускаем если не запущен
         state: started
         networks:
@@ -30,6 +32,8 @@
         name: caddy
         image: "alexamuek/devops-example-caddy:{{ version }}"
         restart_policy: always
+        # всегда скачиваем образ
+        pull: always
         state: started
         networks:
           - name: devops-example
