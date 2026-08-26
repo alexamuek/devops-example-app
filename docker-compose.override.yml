@@ -7,12 +7,12 @@ services:
       - 3000:3000
 
   caddy:
+    # Use the host network locally to avoid a broken Docker bridge connection
+    # between Caddy and the app container. Caddy proxies to localhost:3000.
+    network_mode: host
     volumes:
       - .:/app
       - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
-    ports:
-      - 80:80
-      - 443:443
 
   bugsink:
     image: bugsink/bugsink:latest
