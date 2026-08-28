@@ -1,0 +1,17 @@
+http://localhost {
+	# tls internal
+
+	handle /images/* {
+		file_server
+		root * /app/public
+	}
+
+	handle {
+		# Caddy uses host networking in the local Compose override.
+		reverse_proxy localhost:3000
+	}
+
+	log {
+		# format single_field common_log
+	}
+}

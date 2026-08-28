@@ -27,6 +27,7 @@
           #- 3000:3000
         env: # Настраиваем
           NODE_ENV: production
+          SERVER_MESSAGE: "Shit happens!!! Bro! Yee!"
 
     - community.docker.docker_container:
         name: caddy

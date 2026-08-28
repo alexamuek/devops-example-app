@@ -12,7 +12,7 @@ services:
     network_mode: host
     volumes:
       - .:/app
-      - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile.local
 
   bugsink:
     image: bugsink/bugsink:latest
